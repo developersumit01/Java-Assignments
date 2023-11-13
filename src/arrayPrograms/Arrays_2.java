@@ -1,14 +1,9 @@
 package arrayPrograms;
 
+//This is the URL of that google drive from which you can take the reference if this assignment.
 //	https://drive.google.com/file/d/1Q1YIj7mywtWxGhfxXd8w9cl51oiHBYJo/view?usp=sharing
 
 public class Arrays_2 {
-	public static void main(String[] args) {
-		Arrays_2 arrays_2 = new Arrays_2();
-		int a[] = { 1,2,3,4,5,6,7,8,9 };
-//		System.out.println(arrays_2.union(a, b));
-		System.out.println(arrays_2.smallestInteger(a, 4));
-	}
 
 //	Que 1. Given an unsorted array arr[] of size N having both negative and positive integers, place
 //	all negative elements at the end of array without changing the order of positive elements
@@ -69,7 +64,7 @@ public class Arrays_2 {
 
 	public int smallestInteger(int arr[], int k) {
 		int index = -1;
-		int small=-1;
+		int small = -1;
 		for (int j = 0; j < k; j++) {
 			int max = Integer.MAX_VALUE;
 			for (int i = 0; i < arr.length; i++) {
@@ -78,10 +73,47 @@ public class Arrays_2 {
 					index = i;
 				}
 			}
-			small=arr[index];
-			arr[index] = Integer.MAX_VALUE;	
+			small = arr[index];
+			arr[index] = Integer.MAX_VALUE;
 		}
 		return small;
 	}
 
+//	Que 4. Given an unsorted array A of size N that contains only non-negative integers, find a
+//	continuous sub-array which adds to a given number S.
+//	In case of multiple subarrays, return the subarray which comes first on moving from left
+//	to right.
+//	You need to print the start and end index of answer subarray.
+
+	public int[] subArray(int[] arr, int num) {
+		int sum = 0;
+		for (int i = 0; i < arr.length; i++) {
+			sum = 0;
+			for (int j = i; j < arr.length; j++) {
+				sum += arr[j];
+				if (sum > num) {
+					break;
+				}
+				if (sum == num) {
+					int ans[] = { i, j };
+					return ans;
+				}
+			}
+		}
+		return null;
+	}
+
+//	Que 5. Write a Java program to test the equality of two arrays.
+
+	public boolean equalityOfArray(int[] firstArr, int[] secondArr) {
+		if (firstArr.length != secondArr.length) {
+			return false;
+		}
+		for (int i = 0; i < firstArr.length; i++) {
+			if (firstArr[i] != secondArr[i]) {
+				return false;
+			}
+		}
+		return true;
+	}
 }
