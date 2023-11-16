@@ -1,9 +1,11 @@
 package arrayPrograms;
 
+import java.util.Arrays;
+
 public class ProblemsOnArray_2 {	
 	public static void main(String[] args) {
-		int arr[] = {900, 1000, 1200};
-		int dep[] = {1000, 1100, 1240};
+		int arr[] = {900, 940, 950, 1100, 1500, 1800};
+		int dep[] = {910, 1200, 1120, 1130, 1900, 2000};
 		ProblemsOnArray_2 array_2=new ProblemsOnArray_2();
 		System.out.println(array_2.minimumPlatform(arr,dep));
 	}
@@ -51,23 +53,21 @@ public class ProblemsOnArray_2 {
 			System.out.println("so that the given data is wrong.");
 			return -1;
 		}
-		int numberOfPlatform=1;
-		int temp=2;
-		int arrT=1,depT=0;
-//		Arrays.sort(dep);
-		for(int i=0;i<arr.length-1;i++) {
-			if(arr[arrT]>dep[depT]) {
-				arrT++;
-				depT++;
-				temp--;
-			}else {
-				arrT++;
-				temp++;
-			}
-			if(temp>numberOfPlatform) {
-				numberOfPlatform=temp;
+		int numberOfPlatform=0;
+		int temp[]=new int[2461];
+		for(int i=0;i<arr.length;i++) {
+			temp[arr[i]]++;
+			temp[dep[i]]--;
+		}
+		for(int i=1;i<temp.length;i++) {
+			temp[i]+=temp[i-1];
+		}
+		for(int i=0;i<temp.length;i++) {
+			if(temp[i]>numberOfPlatform) {
+				numberOfPlatform=temp[i];
 			}
 		}
+		System.out.println(Arrays.toString(temp));
 		return numberOfPlatform;
 	}
 	
