@@ -1,5 +1,8 @@
 package arrayPrograms;
 
+//	This is the URL of that google drive from which you can take the reference if this assignment.
+//	https://drive.google.com/file/d/1wcUGE13lkqexSQudyZj-IH45we2RjBSY/view?usp=drive_link
+	
 public class ProblemsOnArray_2 {	
 //	Que 1. Given an array arr[] of size n, find the first repeating element. The element should occur
 //	more thanonce and the index of its first occurrence should be the smallest. If no repeating element 	
