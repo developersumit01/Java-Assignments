@@ -3,13 +3,6 @@ package arrayPrograms;
 import java.util.Arrays;
 
 public class ProblemsOnArray_2 {	
-	public static void main(String[] args) {
-		int arr[] = {900, 940, 950, 1100, 1500, 1800};
-		int dep[] = {910, 1200, 1120, 1130, 1900, 2000};
-		ProblemsOnArray_2 array_2=new ProblemsOnArray_2();
-		System.out.println(array_2.minimumPlatform(arr,dep));
-	}
-	
 //	Que 1. Given an array arr[] of size n, find the first repeating element. The element should occur
 //	more thanonce and the index of its first occurrence should be the smallest. If no repeating element 	
 //	exists, print -1.
@@ -32,6 +25,24 @@ public class ProblemsOnArray_2 {
 //	If there are more positive numbers, they appear at the end of the array. If there are more negative
 //	numbers, they too appear at the end of the array.
 	
+	public int[] arrangeArray(int arr[]) {
+		int pos=0,neg=0;
+		int index=0;
+		int ans[]=new int[arr.length];
+		while(index<arr.length) {
+			while(arr[neg]>0&&neg<arr.length-1) {
+				neg++;
+			}
+			if(arr[neg]<0)
+			ans[index++]=arr[neg++];
+			while(arr[pos]<-1&&pos<arr.length-1) {
+				pos++;
+			}
+			if(arr[pos]>-1)
+			ans[index++]=arr[pos++];
+		}
+		return ans;
+	}
 	
 //	Que 3. Minimum Platforms
 //	Given arrival and departure times of all trains that reach a railway station. Find the minimum number
