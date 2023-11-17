@@ -1,7 +1,5 @@
 package arrayPrograms;
 
-import java.util.Arrays;
-
 public class ProblemsOnArray_2 {	
 //	Que 1. Given an array arr[] of size n, find the first repeating element. The element should occur
 //	more thanonce and the index of its first occurrence should be the smallest. If no repeating element 	
@@ -78,7 +76,6 @@ public class ProblemsOnArray_2 {
 				numberOfPlatform=temp[i];
 			}
 		}
-		System.out.println(Arrays.toString(temp));
 		return numberOfPlatform;
 	}
 	
