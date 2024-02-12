@@ -1,4 +1,4 @@
-package arrayPrograms;
+package oneDArrayPrograms;
 
 import java.util.Scanner;
 // This is the URL of that google drive from which you can take the reference if this assignment.

@@ -1,4 +1,4 @@
-package arrayPrograms;
+package oneDArrayPrograms;
 
 //	This is the URL of that google drive from which you can take the reference if this assignment.
 //	https://drive.google.com/file/d/1wcUGE13lkqexSQudyZj-IH45we2RjBSY/view?usp=drive_link

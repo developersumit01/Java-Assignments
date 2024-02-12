@@ -1,4 +1,4 @@
-package arrayPrograms;
+package oneDArrayPrograms;
 
 import java.util.Arrays;
 
