@@ -1,25 +1,10 @@
 package twoDArrayPrograms;
 
-import java.util.Arrays;
-
 //	This is the URL of that google drive from which you can take the reference if this assignment.
 
 // 	https://drive.google.com/file/d/1hlzvkVaowS5x9TWfbdz1fd9yAVv59Vfu/view?usp=sharing
 
 public class TwoDArrayProblems_1 {
-
-	public static void main(String[] args) {
-		TwoDArrayProblems_1 arrayProblems_1 = new TwoDArrayProblems_1();
-		int arr[][] = { { 1, 2, 3 },{4,5,6} };
-		System.out.println(Arrays.toString(arrayProblems_1.diagoanlTraversalOfSquareMatrix(arr)));
-//		arr=arrayProblems_1.rotateMatrix(arr);
-//		for(int row=0;row<arr.length;row++) {
-//			for(int col=0;col<arr[0].length;col++) {
-//				System.out.print(arr[row][col]);
-//			}
-//			System.out.println();
-//		}
-	}
 
 //	Que 1. Given two integer matrices, multiply the matrices, if possible, else return “Invalid Input”.
 	public int[][] matrixMultiply(int a[][], int b[][]) {
@@ -142,56 +127,13 @@ public class TwoDArrayProblems_1 {
 		}
 		return ans;
 	}
-//	public int[] diagoanlTraversal(int arr[][]) {
-////		from here i am  starting the validation of array 
-//		/*
-//		 * if the array is not square matrix then it will return with an error message.
-//		 * if the array is empty the it will return.
-//		 */
-//		if (arr.length == 0) {
-//			return null;
-//		}
-//		int row = arr.length - 1, col = arr[0].length - 1;
-////		if (row != col) {
-////			System.out.println("The array should be squired!");
-////			return null;
-////		}
-////		validation end.
-//		int ans[] = new int[arr.length * arr[0].length]; // This is the answer array.
-//		int rowStart = 0, rowEnd = 0, index = 0, i = 0, j = 0, oddEven = 0;
-//		/*
-//		 * In this logic i am traversing the array according to rowStart and rowEnd
-//		 * number. i,j are the index of array which we want to traverse. index is a
-//		 * variable which will traverse the answer array. and oddEven is the variable
-//		 * which iteration we are performing odd or even. if the iteration is odd the
-//		 * iteration will be top to bottom. else the iteration will be bottom to top.
-//		 */
-//		while (rowStart <= row) {
-//			while (i > -1 && j > -1 && i <= row) {
-//				if(i>row) {
-//					i=row;
-//				}
-//				if(j>col) {
-//					j=col;
-//				}else if(oddEven%2!=0&&j>row) {
-//					j=row;
-//				}
-//				if (oddEven % 2 != 0) {
-//					ans[index++] = arr[i++][j--];
-//				} else {
-//					ans[index++] = arr[j--][i++];
-//				}
-//			}
-//			oddEven++;
-//			if (rowEnd < col) {
-//				rowEnd++;
-//			} else {
-//				rowStart++;
-//			}
-//			i = rowStart;
-//			j = rowEnd;
-//		}
+//	Que 5. Given an array of intervals where intervals[i] = [start, end], merge all overlapping intervals,
+//			and return the count of the non-overlapping intervals that cover all the intervals in the input.
+	
+//	public int overlapingIntervals(int arr[][]) {
+//		int ans=0;
+//		
 //		return ans;
 //	}
-
+	
 }
