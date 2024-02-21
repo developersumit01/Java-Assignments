@@ -1,11 +1,12 @@
 package twoDArrayPrograms;
 
+import java.util.Arrays;
+
 //	This is the URL of that google drive from which you can take the reference if this assignment.
 
 // 	https://drive.google.com/file/d/1hlzvkVaowS5x9TWfbdz1fd9yAVv59Vfu/view?usp=sharing
 
 public class TwoDArrayProblems_1 {
-
 //	Que 1. Given two integer matrices, multiply the matrices, if possible, else return “Invalid Input”.
 	public int[][] matrixMultiply(int a[][], int b[][]) {
 		if (a.length == 0 || b.length == 0) {
@@ -129,11 +130,24 @@ public class TwoDArrayProblems_1 {
 	}
 //	Que 5. Given an array of intervals where intervals[i] = [start, end], merge all overlapping intervals,
 //			and return the count of the non-overlapping intervals that cover all the intervals in the input.
-	
-//	public int overlapingIntervals(int arr[][]) {
-//		int ans=0;
-//		
-//		return ans;
-//	}
-	
+
+	public int overlapingIntervals(Integer arr[][]) {
+		int ans = 0;
+		Arrays.sort(arr, (a, b) -> {
+			if (a[0] - b[0] != 0) {
+				return a[0] - b[0];
+			} else {
+				return a[1] - b[1];
+			}
+		});
+		int end = arr[0][1];
+		for (int i = 1; i < arr.length; i++) {
+			if (end < arr[i][1]) {
+				end = arr[i][1];
+				ans++;
+			}
+		}
+		return ans;
+	}
+
 }
