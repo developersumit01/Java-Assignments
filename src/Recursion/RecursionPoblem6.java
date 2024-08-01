@@ -1,11 +1,15 @@
 package Recursion;
 
+import java.util.Arrays;
+
 public class RecursionPoblem6 {
 	public static void main(String[] args) {
 		RecursionPoblem6 poblem6 = new RecursionPoblem6();
 
-		int arr[] = { 1, 2, 3, 4, 5 };
-		poblem6.rCombinationOfArray(arr,3);
+		int arr[] = { 10, 15, 25, 35 };
+		int arr1[] = { 1, 5, 20, 30, 40 };
+		int ans[] = new int[arr.length + arr1.length];
+		poblem6.generate(arr, arr1, ans, 0, 0, arr.length, arr1.length, 0, true);;
 	}
 
 //	Q1 - Count all the possible paths on an m x n grid from top left (grid[0][0]) to bottom right (grid[m-1][n-1]) having 	constraints that from each cell you can either move only to right or down.
@@ -64,34 +68,69 @@ public class RecursionPoblem6 {
 //	Q3 - Given an array of size n, generate and print all possible combinations of r elements in array.
 
 //	Note This function is showing error i will handle this error very soon.
-	
+
 	public void rCombinationOfArray(int arr[], int r) {
 		int ans[] = new int[r];
-		for (int i = 0; i < r; i++) {
-			ans[i] = i;
-		}
 
-		serviceOfRCombinationOfArray(arr, ans, r,r-1);
+		serviceOfRCombinationOfArray(arr, ans, r, 0, 0);
 	}
 
-	private void serviceOfRCombinationOfArray(int[] arr, int[] ans, int r,int index) {
-		// TODO Auto-generated method stub
-		if(index==-1) {
+	private void serviceOfRCombinationOfArray(int[] arr, int[] ans, int r, int index, int i) {
+		if (index == r) {
+			for (int j = 0; j < ans.length; j++) {
+				System.out.print(ans[j] + " ");
+			}
+			System.out.println();
 			return;
 		}
-		for(int i=0;i<ans.length;i++) {
-			System.out.print(arr[ans[i]]+" ");	
+
+		if (i >= arr.length) {
+			return;
 		}
-		for(int j=ans.length-1;j>=index;j--) {
-			ans[j]++;
-		}
-		System.out.println();
-		if(ans[index]==arr.length-1) {
-			index--;
-			for(int i=index;i<ans.length-1;i++) {
-				ans[i+1]=ans[i]+1;
+
+		ans[index] = arr[i];
+
+		serviceOfRCombinationOfArray(arr, ans, r, index + 1, i + 1);
+		serviceOfRCombinationOfArray(arr, ans, r, index, i + 1);
+	}
+
+//	Q4 - Given two sorted arrays A and B of length m and n respectively, generate all possible arrays
+//	such that the first element is taken from A then from B then from A, and so on in increasing order
+//	till the arrays are exhausted. The generated arrays should end with an element from B.
+
+
+	public static void generate(int[] A, int[] B, int[] C, int i, int j, int m, int n, int len, boolean flag) {
+		if (flag) {
+			// Include valid element from A
+			// Print output if there is at least one 'B' in output array 'C'
+			if (len != 0) {
+				printArr(C, len + 1);
+			}
+			// Recur for all elements of A after current index
+			for (int k = i; k < m; k++) {
+				if (len == 0) { // this block works for the very first call to include the first element in the
+								// output array
+					C[len] = A[k];
+					// don't increment len as B is included
+					generate(A, B, C, k + 1, j, m, n, len, !flag);
+				} else if (A[k] > C[len]) { // include valid element from A and recur
+					C[len + 1] = A[k];
+					generate(A, B, C, k + 1, j, m, n, len + 1, !flag);
+				}
+			}
+		} else { // Include valid element from B and recur
+			for (int l = j; l < n; l++) {
+				if (B[l] > C[len]) {
+					C[len + 1] = B[l];
+					generate(A, B, C, i, l + 1, m, n, len + 1, !flag);
+				}
 			}
 		}
-		serviceOfRCombinationOfArray(arr, ans, r, index);
+	}
+
+	public static void printArr(int[] arr, int n) {
+		for (int i = 0; i < n; i++)
+			System.out.print(arr[i] + " ");
+		System.out.println("");
 	}
 }
