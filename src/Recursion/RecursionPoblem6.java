@@ -1,19 +1,7 @@
 package Recursion;
 
-import java.util.Arrays;
-
 public class RecursionPoblem6 {
-	public static void main(String[] args) {
-		RecursionPoblem6 poblem6 = new RecursionPoblem6();
-
-		int arr[] = { 10, 15, 25, 35 };
-		int arr1[] = { 1, 5, 20, 30, 40 };
-		int ans[] = new int[arr.length + arr1.length];
-		poblem6.generate(arr, arr1, ans, 0, 0, arr.length, arr1.length, 0, true);;
-	}
-
 //	Q1 - Count all the possible paths on an m x n grid from top left (grid[0][0]) to bottom right (grid[m-1][n-1]) having 	constraints that from each cell you can either move only to right or down.
-
 	public int numberOfPath(int m, int n) {
 		int count[] = new int[1];
 		return serviceOfNumberOfPath(m, n, 0, 0, count);
@@ -99,7 +87,7 @@ public class RecursionPoblem6 {
 //	till the arrays are exhausted. The generated arrays should end with an element from B.
 
 
-	public static void generate(int[] A, int[] B, int[] C, int i, int j, int m, int n, int len, boolean flag) {
+	public void generate(int[] A, int[] B, int[] C, int i, int j, int m, int n, int len, boolean flag) {
 		if (flag) {
 			// Include valid element from A
 			// Print output if there is at least one 'B' in output array 'C'
@@ -133,4 +121,5 @@ public class RecursionPoblem6 {
 			System.out.print(arr[i] + " ");
 		System.out.println("");
 	}
+
 }
