@@ -1,6 +1,6 @@
 package Recursion;
 
-public class RecursionPoblem6 {
+public class RecursionProblem6 {
 //	Q1 - Count all the possible paths on an m x n grid from top left (grid[0][0]) to bottom right (grid[m-1][n-1]) having 	constraints that from each cell you can either move only to right or down.
 	public int numberOfPath(int m, int n) {
 		int count[] = new int[1];
