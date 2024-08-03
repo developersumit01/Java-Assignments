@@ -4,7 +4,7 @@ public class RecursionProblem8 {
 	public static void main(String[] args) {
 		RecursionProblem8 problem8 = new RecursionProblem8();
 		char arr[] = { 'a', 'b' };
-		problem8.allPossibleString(arr, 2);
+		problem8.sameOrderDigits("1234");
 
 	}
 
@@ -53,27 +53,39 @@ public class RecursionProblem8 {
 //	Q3. Given a set of characters and a positive integer k, print all possible strings of length k that
 //	can be formed from the given set.
 
-//	Note : This method is not giving the right output it showing the exception, i will complete it very soon. 
-	
 	public void allPossibleString(char str[], int len) {
-		allPossibleString(str, 0, "", len);
+		allPossibleString(str, len, "");
 	}
 
-	private void allPossibleString(char arr[], int index, String ans, int len) {
-		if (ans.length() >= len) {
+	private void allPossibleString(char arr[], int index, String ans) {
+		if (index <= 0) {
 			System.out.println(ans);
 			return;
 		}
-		if (index < len) {
-			allPossibleString(arr, index + 1, ans + arr[index], len);
-		} else {
-			allPossibleString(arr, 0, ans + arr[0], len);
+		for (int i = 0; i < arr.length; i++) {
+			allPossibleString(arr, index - 1, ans + arr[i]);
 		}
-		allPossibleString(arr, index + 1, ans, len);
+	}
+
+//	Q4. Given an input string of digits, find all combinations of numbers that can be formed using
+//		digits in the same order.
+
+	public void sameOrderDigits(String str) {
+		sameOrderDigits(str, "", 0);
+	}
+
+	private void sameOrderDigits(String str, String string, int i) {
+		if (i == str.length()) {
+			System.out.println(string);
+			return;
+		}
+		sameOrderDigits(str, string + str.charAt(i) + " ", i + 1);
+		if (i < str.length() - 1)
+			sameOrderDigits(str, string + str.charAt(i), i + 1);
 	}
 
 //	Q5. A string is called special if it consists of only stars(‘*’) and dashes(‘-’), and there are no
-//	consecutive stars in the string. Given a positive integer k, print all the special strings of size k.
+//		consecutive stars in the string. Given a positive integer k, print all the special strings of size k.
 
 	public void specialStringNoConsecutiveStar(int n) {
 		specialStringNoConsecutiveStar(n, "", true);
